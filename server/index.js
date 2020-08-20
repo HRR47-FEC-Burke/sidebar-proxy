@@ -10,7 +10,6 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use('/item/:id', express.static(`${__dirname}/../public`));
 
-// I have no idea what these are, how they work, but they work
 const mpTarget = process.env.MP_TARGET || 'http://localhost:3001';
 const mpProxy = { target: mpTarget, changeOrigin: true }
 app.use('*/mp/api', createProxyMiddleware(mpProxy));
