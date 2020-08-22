@@ -9,13 +9,13 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use('/item/:id', express.static(`${__dirname}/../public`));
 
-const mpTarget = 'http://3.23.171.227';
-const mpProxy = { target: mpTarget, changeOrigin: true }
-app.use('*/mp/api', createProxyMiddleware(mpProxy));
+const photoTarget = 'http://3.23.171.227';
+const photoProxy = { target: photoTarget, changeOrigin: true }
+app.use('*/photo/api', createProxyMiddleware(photoProxy));
 
-const srTarget = 'http://50.18.135.245';
-const srProxy = { target: srTarget, changeOrigin: true }
-app.use('*/sr/api', createProxyMiddleware(srProxy));
+const reviewsTarget = 'http://50.18.135.245';
+const reviewsProxy = { target: reviewsTarget, changeOrigin: true }
+app.use('*/reviews/api', createProxyMiddleware(reviewsProxy));
 
 const sbTarget = 'http://15.164.155.96';
 const sbProxy = { target: sbTarget, changeOrigin: true }
